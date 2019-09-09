@@ -1,0 +1,31 @@
+<h1>Index motherfucker</h1> <br>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+    <h2> Regular Movies </h2>
+    <% @regular_movies.each do |movie| %>
+    <p> <%= "#{movie.name} / #{movie.year}"%>
+    <%= link_to "Ver", movie%>
+    <%= link_to "Edit", edit_movie_path(movie) %>
+    <%= link_to "Eliminar", movie, method: :delete, data: { confirm: 'tay seguro cabro ql?'} %>
+    <%= button_to "Like", favorite_movie_path(movie) %></p>
+    <% end %>
+      
+    </div>
+    <div class="col">
+    <h2> Favorites Movies </h2>
+    <% @favorite_movies.each do |movie| %>
+    <p> <%= "#{movie.name} / #{movie.year}"%>
+    <%= link_to "Ver", movie%>
+    <%= link_to "Edit", edit_movie_path(movie) %>
+    <%= link_to "Eliminar", movie, method: :delete, data: { confirm: 'tay seguro cabro ql?'} %>
+    <%= button_to "DISLike", favorite_movie_path(movie), method: :delete %></p>
+    <% end %>
+    </div>
+  </div>
+
+
+<button type="button" class="btn btn-warning btn-lg btn-block"><%= link_to "Crear Peli", movies_new_path %></button>
